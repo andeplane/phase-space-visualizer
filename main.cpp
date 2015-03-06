@@ -6,7 +6,6 @@
 #include <QSurfaceFormat>
 #include <QGLFormat>
 #include <QOpenGLContext>
-
 #include <iostream>
 #include <QFontDatabase>
 
@@ -27,9 +26,19 @@ int main (int argc, char * argv [])
     QFontDatabase::addApplicationFont(":/fonts/SourceSansPro-Regular.ttf");
     app.setFont(QFont("Source Sans Pro"));
 
+    QSurfaceFormat f;
+    f.setMajorVersion(4);
+    f.setMinorVersion(1);
+    f.setDepthBufferSize(16);
+    // f.setStencilBufferSize(16);
+    f.setProfile(QSurfaceFormat::CoreProfile);
+
+    view.setFormat(f);
     view.setResizeMode(QQuickView::SizeRootObjectToView);
     view.setSource(QUrl("qrc:///main.qml"));
+
     view.show();
+
 
     return app.exec();
 }

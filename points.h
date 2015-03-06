@@ -1,4 +1,6 @@
 #pragma once
+#include <QOpenGLBuffer>
+#include <QOpenGLVertexArrayObject>
 #include <QtGui/QOpenGLShaderProgram>
 #include <QOpenGLFunctions>
 #include <vector>
@@ -17,6 +19,8 @@ public:
 private:
     GLuint m_vboIds[1];
     unsigned int m_numberOfPoints;
+    QOpenGLBuffer *m_vbo;
+    QOpenGLVertexArrayObject *m_vao;
     QOpenGLFunctions *m_funcs;
     QOpenGLShaderProgram *m_program;
 
